@@ -1,0 +1,56 @@
+﻿<Window x:Class="GeneriranjeZaporke.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Zaporkerator"
+        SizeToContent="WidthAndHeight">
+        
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="Duljina zaporke" HorizontalAlignment="Left"/>
+        <TextBox Grid.Column="3" Grid.Row="1" Width="100" HorizontalAlignment="Left"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="Opcije" HorizontalAlignment="Left"/>
+
+        <RadioButton Content="Velika/mala slova" Grid.Row="5" Grid.Column="1"/>
+        <RadioButton Content="Brojevi" Grid.Row="6" Grid.Column="1"/>
+        <RadioButton Content="Simboli" Grid.Row="7" Grid.Column="1"/>
+        <RadioButton Content="Spremi u datoteku" Grid.Row="9" Grid.Column="1"/>
+
+        <TextBlock Text="Zaporka" Grid.Column="1" Grid.Row="11"/>
+        <TextBox Grid.Column="3" Grid.Row="11"/>
+
+        <Button Content="Generiraj" Grid.Row="13" Grid.Column="3"/>
+
+
+    </Grid>
+    
+</Window>
