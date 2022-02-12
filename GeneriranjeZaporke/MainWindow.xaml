@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Zaporkerator"
+        Title="Generator"
         SizeToContent="WidthAndHeight">
         
     <Grid>
@@ -36,17 +36,21 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="1" Grid.Row="1" Text="Duljina zaporke" HorizontalAlignment="Left"/>
-        <TextBox Grid.Column="3" Grid.Row="1" Width="100" HorizontalAlignment="Left"/>
+        <TextBox x:Name="passwordLength" Grid.Column="3" Grid.Row="1" Width="100" HorizontalAlignment="Left" TextChanged="TextBox_TextChanged">
+            <TextBox.InputBindings>
+                <KeyBinding Key="Return" Command="{}" />
+            </TextBox.InputBindings>
+        </TextBox>
 
         <TextBlock Grid.Row="3" Grid.Column="1" Text="Opcije" HorizontalAlignment="Left"/>
 
-        <RadioButton Content="Velika/mala slova" Grid.Row="5" Grid.Column="1"/>
-        <RadioButton Content="Brojevi" Grid.Row="6" Grid.Column="1"/>
-        <RadioButton Content="Simboli" Grid.Row="7" Grid.Column="1"/>
-        <RadioButton Content="Spremi u datoteku" Grid.Row="9" Grid.Column="1"/>
+        <CheckBox x:Name="letterSizeOption" Content="Velika/mala slova" Grid.Row="5" Grid.Column="1" Checked="letterSizeOption_Checked"/>
+        <CheckBox x:Name="numbersOption" Content="Brojevi" Grid.Row="6" Grid.Column="1" Checked="numbersOption_Checked"/>
+        <CheckBox x:Name="symbolsOption" Content="Simboli" Grid.Row="7" Grid.Column="1" Checked="symbolsOption_Checked"/>
+        <CheckBox x:Name="saveToFileOption" Content="Spremi u datoteku" Grid.Row="9" Grid.Column="1" Checked="saveToFileOption_Checked"/>
 
         <TextBlock Text="Zaporka" Grid.Column="1" Grid.Row="11"/>
-        <TextBox Grid.Column="3" Grid.Row="11"/>
+        <TextBox x:Name="generatedPassword" Grid.Column="3" Grid.Row="11"/>
 
         <Button Content="Generiraj" Grid.Row="13" Grid.Column="3"/>
 
