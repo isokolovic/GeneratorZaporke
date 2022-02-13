@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         Title="Generator"
         SizeToContent="WidthAndHeight">
-        
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -44,17 +44,27 @@
 
         <TextBlock Grid.Row="3" Grid.Column="1" Text="Opcije" HorizontalAlignment="Left"/>
 
-        <CheckBox x:Name="letterSizeOption" Content="Velika/mala slova" Grid.Row="5" Grid.Column="1" Checked="letterSizeOption_Checked"/>
-        <CheckBox x:Name="numbersOption" Content="Brojevi" Grid.Row="6" Grid.Column="1" Checked="numbersOption_Checked"/>
-        <CheckBox x:Name="symbolsOption" Content="Simboli" Grid.Row="7" Grid.Column="1" Checked="symbolsOption_Checked"/>
-        <CheckBox x:Name="saveToFileOption" Content="Spremi u datoteku" Grid.Row="9" Grid.Column="1" Checked="saveToFileOption_Checked"/>
+        <CheckBox x:Name="letterSizeOption" Content="Velika/mala slova" Grid.Row="5" Grid.Column="1" Checked="letterSizeOption_Checked"
+          Unchecked="letterSizeOption_Checked"/>
+        <CheckBox x:Name="numbersOption" Content="Brojevi" Grid.Row="6" Grid.Column="1" 
+          Checked="numbersOption_Checked"
+          Unchecked="numbersOption_Checked"/>
+        <CheckBox x:Name="symbolsOption" Content="Simboli" Grid.Row="7" Grid.Column="1" 
+          Checked="symbolsOption_Checked"
+          Unchecked="symbolsOption_Checked"/>
+        <CheckBox x:Name="saveToFileOption" Content="Spremi u datoteku" Grid.Row="9" Grid.Column="1" Checked="saveToFileOption_Checked"
+          Unchecked="saveToFileOption_Checked"/>
+
+        <TextBlock Grid.Row="9" Grid.Column="3" HorizontalAlignment="Left" Name="openFile"
+                   Visibility="Hidden">
+            <Hyperlink Click="openFile_Click">Otvori datoteku</Hyperlink>
+        </TextBlock>
 
         <TextBlock Text="Zaporka" Grid.Column="1" Grid.Row="11"/>
         <TextBox x:Name="generatedPassword" Grid.Column="3" Grid.Row="11"/>
 
-        <Button Content="Generiraj" Grid.Row="13" Grid.Column="3"/>
-
-
+        <Button Content="Generiraj" Grid.Row="13" Grid.Column="3" Click="GenerateButton_Click"/>
+              
     </Grid>
-    
+
 </Window>
