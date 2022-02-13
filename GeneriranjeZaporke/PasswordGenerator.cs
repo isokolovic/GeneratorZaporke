@@ -6,7 +6,7 @@ using System.Text;
 namespace GeneriranjeZaporke
 {
     /// <summary>
-    /// 
+    /// Class containing methods related to password generation with user-defined customization options
     /// </summary>
     internal class PasswordGenerator
     {

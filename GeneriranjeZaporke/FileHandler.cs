@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
 
 namespace GeneriranjeZaporke
 {
     /// <summary>
-    /// 
+    /// Class containing methods providing functionalities regarding file handling
     /// </summary>
     internal class FileHandler
     {
@@ -17,9 +14,9 @@ namespace GeneriranjeZaporke
         #region Internal methods
 
         /// <summary>
-        /// 
+        /// Saves generated password to .txt file
         /// </summary>
-        /// <param name="password"></param>
+        /// <param name="password">Password to be saved to file</param>
         internal void SaveToFile(string password)
         {
             var directory = Directory.GetCurrentDirectory();
@@ -32,10 +29,10 @@ namespace GeneriranjeZaporke
         }
 
         /// <summary>
-        /// 
+        /// Checks if file containing saved passwords is empty
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="FileNotFoundException"></exception>
+        /// <exception cref="FileNotFoundException">Thrown if no file is available to check</exception>
         internal bool IsFileEmpty()
         {
             var directory = Directory.GetCurrentDirectory();
@@ -57,7 +54,7 @@ namespace GeneriranjeZaporke
         }
 
         /// <summary>
-        /// 
+        /// Opens file containing generated passwords in notepad
         /// </summary>
         internal void OpenFile()
         {

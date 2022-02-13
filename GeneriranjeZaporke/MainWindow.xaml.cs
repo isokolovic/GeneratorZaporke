@@ -25,6 +25,8 @@ namespace GeneriranjeZaporke
 
         #endregion
 
+        #region Main window initialization
+
         /// <summary>
         /// Main window initialization
         /// </summary>
@@ -33,7 +35,18 @@ namespace GeneriranjeZaporke
             InitializeComponent();            
         }
 
+        #endregion
+
         #region Password generation
+
+        /// <summary>
+        /// Method calls password generation process according to selected options 
+        /// </summary>
+        /// <param name="length"></param>
+        /// <param name="letterSizeOpt"></param>
+        /// <param name="numberOpt"></param>
+        /// <param name="symbolOpt"></param>
+        /// <returns></returns>
         private string GeneratePassword(int length, bool letterSizeOpt, bool numberOpt, bool symbolOpt)
         {
             StringBuilder letters = valueGenerator.Letters;
@@ -75,46 +88,74 @@ namespace GeneriranjeZaporke
         }
         #endregion
 
+        #region User action methods
+
+        /// <summary>
+        /// Actions related to chages in password length textBlock
+        /// </summary>
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!int.TryParse(passwordLength.Text, out userPasswordLength))
+            try
             {
-                throw new ArgumentException(passwordLength.Text.ToString());
+                userPasswordLength = int.Parse(passwordLength.Text);
             }
-
-            int.TryParse(passwordLength.Text, out userPasswordLength);
+            catch (FormatException)
+            {
+                if(passwordLength.Text.Length != 0)
+                {
+                    MessageBox.Show("Duljina lozinke mora biti broj!");
+                    passwordLength.Text = null;
+                }
+            }
         }
 
+        /// <summary>
+        /// Actions related to chages lower/Upper letters checkbox
+        /// </summary>
         private void letterSizeOption_Checked(object sender, RoutedEventArgs e)
         {
-            //lambda
             if(letterSizeOption.IsChecked == true) userLetterSizeOption=true;
             if(letterSizeOption.IsChecked == false) userLetterSizeOption=false;
         }
 
+        /// <summary>
+        /// Actions related to chages numbers checkbox
+        /// </summary>
         private void numbersOption_Checked(object sender, RoutedEventArgs e)
         {
             if(numbersOption.IsChecked == true) userNumberOption = true;
             if(numbersOption.IsChecked == false) userNumberOption = false;
         }
 
+        /// <summary>
+        /// Actions related to chages symbols checkbox
+        /// </summary>        
         private void symbolsOption_Checked(object sender, RoutedEventArgs e)
         {
             if(symbolsOption.IsChecked == true) userSymbolOption = true;
             if(symbolsOption.IsChecked == false) userSymbolOption=false;
         }
 
+        /// <summary>
+        /// Actions related to changes in checkbox providing option to save password in file
+        /// </summary>
         private void saveToFileOption_Checked(object sender, RoutedEventArgs e)
         {
             if(saveToFileOption.IsChecked == true) userSaveToFileOption = true;
             if(saveToFileOption.IsChecked == false) userSaveToFileOption = false;
         }
 
+        /// <summary>
+        /// Action opening a file containing saved passwords
+        /// </summary>
         private void openFile_Click(object sender, RoutedEventArgs e)
         {
             fileHandler.OpenFile();
         }
 
+        /// <summary>
+        /// Action calling password generation
+        /// </summary>
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -137,10 +178,8 @@ namespace GeneriranjeZaporke
             {
                 MessageBox.Show("Prema opcijama, lozinka mora biti najmanje duljine " + exception.ParamName);
             }
-            catch(ArgumentException exception)
-            {
-                MessageBox.Show("Vrijednost mora biti broj, a ne " + exception.ParamName);
-            }
         }
+
+        #endregion
     }
 }
