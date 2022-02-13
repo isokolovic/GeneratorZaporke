@@ -6,7 +6,7 @@ using System.Diagnostics;
 namespace GeneriranjeZaporke
 {
     /// <summary>
-    /// Class containing methods providing functionalities regarding file handling
+    /// Class containing methods providing functionalities related to file handling
     /// </summary>
     internal class FileHandler
     {

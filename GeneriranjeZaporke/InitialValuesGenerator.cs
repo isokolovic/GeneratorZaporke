@@ -4,7 +4,7 @@ using System.Text;
 namespace GeneriranjeZaporke
 {
     /// <summary>
-    /// Provides default values for members used in password generation
+    /// Class contains properties (and value-providing methods) for default values used in password generation
     /// </summary>
     internal class InitialValuesGenerator 
     {
