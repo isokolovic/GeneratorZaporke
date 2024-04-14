@@ -1,4 +1,4 @@
-# Password generator 
+# Password Generator 
 
 Simple random password generator providing user following customization options:
 * Set password length
